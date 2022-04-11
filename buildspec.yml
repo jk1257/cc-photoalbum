@@ -7,10 +7,7 @@ phases:
     commands:
       - sam build
       - export BUCKET=b--1
-      - sam package --s3-bucket $BUCKET --output-template-file outputtemplate.yml
-  post_build:
-    commands:
-      - aws lambda update-function-code --function-name  index-photos --s3-bucket $BUCKET --s3-key Build.zip   
+      - sam package --s3-bucket $BUCKET --output-template-file outputtemplate.yml  
 artifacts:
   files:
     - template.yml
