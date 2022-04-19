@@ -6,6 +6,8 @@ import requests
 from requests_aws4auth import AWS4Auth
 import re
 
+#DEMO ADDITION 
+
 def detectLabelsRekognition(bucket, key):
     rekognition = boto3.client('rekognition')
     response = rekognition.detect_labels(
