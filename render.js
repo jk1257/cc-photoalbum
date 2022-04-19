@@ -10,29 +10,31 @@ function searchPhoto() {
   Http.send();
 
   Http.onreadystatechange = (e) => {
-    console.log(Http.responseText)
-    var response_data = JSON.parse(Http.responseText);
-    console.log(response_data);
-    console.log(typeof(response_data))
-    length_of_response = response_data.length;
-    console.log(length_of_response)
+    if (Http.readyState == 4 && Http.status == 200){
+      console.log(Http.responseText)
+      var response_data = JSON.parse(Http.responseText);
+      console.log(response_data);
+      console.log(typeof(response_data))
+      length_of_response = response_data.length;
+      console.log(length_of_response)
 
-    if (length_of_response == 0) {
-      document.getElementById("displaytext").innerHTML = "No Images Found"
+      if (length_of_response == 0) {
+        document.getElementById("displaytext").innerHTML = "No Images Found"
+        document.getElementById("displaytext").style.display = "block";
+      }
+      
+      response_data.forEach(function (obj) {
+      var img = new Image();
+      img.src = obj;
+      img.setAttribute("class", "banner-img");
+      img.setAttribute("alt", "effy");
+      img.setAttribute("width", "150");
+      img.setAttribute("height", "100");
+      document.getElementById("displaytext").innerHTML = "Images"
+      document.getElementById("img-container").appendChild(img);
       document.getElementById("displaytext").style.display = "block";
-    }
-    
-    response_data.forEach(function (obj) {
-    var img = new Image();
-    img.src = obj;
-    img.setAttribute("class", "banner-img");
-    img.setAttribute("alt", "effy");
-    img.setAttribute("width", "150");
-    img.setAttribute("height", "100");
-    document.getElementById("displaytext").innerHTML = "Images"
-    document.getElementById("img-container").appendChild(img);
-    document.getElementById("displaytext").style.display = "block";
-    })    
+      })
+    }    
   }
 }
 
@@ -46,28 +48,30 @@ function searchPhotoVoice() {
   Http.send();
 
   Http.onreadystatechange = (e) => {
-    console.log(Http.responseText)
-    var response_data = JSON.parse(Http.responseText);
-    console.log(response_data);
-    length_of_response = response_data.length;
-    console.log(length_of_response)
+    if (Http.readyState == 4 && Http.status == 200){
+      console.log(Http.responseText)
+      var response_data = JSON.parse(Http.responseText);
+      console.log(response_data);
+      length_of_response = response_data.length;
+      console.log(length_of_response)
 
-    if (length_of_response == 0) {
-      document.getElementById("displaytext").innerHTML = "No Images Found"
+      if (length_of_response == 0) {
+        document.getElementById("displaytext").innerHTML = "No Images Found"
+        document.getElementById("displaytext").style.display = "block";
+      }
+      
+      response_data.forEach(function (obj) {
+      var img = new Image();
+      img.src = obj;
+      img.setAttribute("class", "banner-img");
+      img.setAttribute("alt", "effy");
+      img.setAttribute("width", "150");
+      img.setAttribute("height", "100");
+      document.getElementById("displaytext").innerHTML = "Images"
+      document.getElementById("img-container").appendChild(img);
       document.getElementById("displaytext").style.display = "block";
+      })
     }
-    
-    response_data.forEach(function (obj) {
-    var img = new Image();
-    img.src = obj;
-    img.setAttribute("class", "banner-img");
-    img.setAttribute("alt", "effy");
-    img.setAttribute("width", "150");
-    img.setAttribute("height", "100");
-    document.getElementById("displaytext").innerHTML = "Images"
-    document.getElementById("img-container").appendChild(img);
-    document.getElementById("displaytext").style.display = "block";
-    })
   }
 }
 
