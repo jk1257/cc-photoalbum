@@ -28,8 +28,8 @@ function searchPhoto() {
       img.src = obj;
       img.setAttribute("class", "banner-img");
       img.setAttribute("alt", "effy");
-      img.setAttribute("width", "150");
-      img.setAttribute("height", "100");
+      img.setAttribute("width", "170");
+      img.setAttribute("height", "170");
       document.getElementById("displaytext").innerHTML = "Images"
       document.getElementById("img-container").appendChild(img);
       document.getElementById("displaytext").style.display = "block";
@@ -65,8 +65,8 @@ function searchPhotoVoice() {
       img.src = obj;
       img.setAttribute("class", "banner-img");
       img.setAttribute("alt", "effy");
-      img.setAttribute("width", "150");
-      img.setAttribute("height", "100");
+      img.setAttribute("width", "170");
+      img.setAttribute("height", "170");
       document.getElementById("displaytext").innerHTML = "Images"
       document.getElementById("img-container").appendChild(img);
       document.getElementById("displaytext").style.display = "block";
