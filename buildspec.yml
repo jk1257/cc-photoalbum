@@ -12,6 +12,7 @@ phases:
       - cd lib
       - zip -r9 ../deployment_package.zip .
       - cd ..
+      - cd Lambdas
       - zip -g deployment_package.zip Lambdas/index-photos.py
   post_build:
     commands:
